@@ -11,13 +11,13 @@ module.exports = {
   devServer: {
     open: true,
     proxy: {
-      '/api': {
+      [process.env.VUE_APP_BASEURL]: {
         target: `https://netease-cloud-music-api-gold-seven.vercel.app`,
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          ['^' + process.env.VUE_APP_BASEURL]: ''
         }
       }
     }
   }
-}
+};

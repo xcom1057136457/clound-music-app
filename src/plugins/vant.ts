@@ -12,7 +12,7 @@ import {
   Search,
   Icon,
   Sticky
-} from "vant";
+} from 'vant';
 
 const vantList: any = {
   Button,

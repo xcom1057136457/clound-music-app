@@ -1,11 +1,11 @@
 export declare interface PhoneLogin {
-  phone: String | Number;
-  password: String | Number;
+  phone: string | number;
+  password: string | number;
 }
 
 export declare interface EmailLogin {
-  email: String | Number;
-  password: String | Number;
+  email: string | number;
+  password: string | number;
 }
 
 export declare interface UserInfoDetail {

@@ -1,18 +1,18 @@
-import { RouteRecordRaw } from "vue-router";
-import Layout from "@/Layout/index.vue";
+import { RouteRecordRaw } from 'vue-router';
+import Layout from '@/Layout/index.vue';
 
 const topic: Array<RouteRecordRaw> = [
   {
-    path: "/topic",
+    path: '/topic',
     component: Layout,
-    redirect: "/topic/index",
+    redirect: '/topic/index',
     children: [
       {
-        path: "/topic/index",
-        name: "Topic",
-        component: () => import("@/views/topic/index.vue"),
+        path: '/topic/index',
+        name: 'Topic',
+        component: () => import('@/views/topic/index.vue'),
         meta: {
-          title: "话题页"
+          title: '话题页'
         }
       }
     ]

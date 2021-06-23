@@ -1,18 +1,18 @@
-import { RouteRecordRaw } from "vue-router";
-import Layout from "@/Layout/index.vue";
+import { RouteRecordRaw } from 'vue-router';
+import Layout from '@/Layout/index.vue';
 
 const my: Array<RouteRecordRaw> = [
   {
-    path: "/my",
+    path: '/my',
     component: Layout,
-    redirect: "/my/index",
+    redirect: '/my/index',
     children: [
       {
-        path: "/my/index",
-        name: "My",
-        component: () => import("@/views/my/index.vue"),
+        path: '/my/index',
+        name: 'My',
+        component: () => import('@/views/my/index.vue'),
         meta: {
-          title: "我的"
+          title: '我的'
         }
       }
     ]

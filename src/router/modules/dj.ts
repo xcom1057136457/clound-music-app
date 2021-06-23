@@ -1,18 +1,18 @@
-import { RouteRecordRaw } from "vue-router";
-import Layout from "@/Layout/index.vue";
+import { RouteRecordRaw } from 'vue-router';
+import Layout from '@/Layout/index.vue';
 
 const dj: Array<RouteRecordRaw> = [
   {
-    path: "/dj",
+    path: '/dj',
     component: Layout,
-    redirect: "/dj/index",
+    redirect: '/dj/index',
     children: [
       {
-        path: "/dj/index",
-        name: "DJ",
-        component: () => import("@/views/dj/index.vue"),
+        path: '/dj/index',
+        name: 'DJ',
+        component: () => import('@/views/dj/index.vue'),
         meta: {
-          title: "DJ"
+          title: 'DJ'
         }
       }
     ]

@@ -1,10 +1,10 @@
-import { createStore } from "vuex";
-import createPersistedState from "vuex-persistedstate";
+import { createStore } from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
-const modulesFiles = require.context("./modules", true, /\.ts$/);
+const modulesFiles = require.context('./modules', true, /\.ts$/);
 
 const modules = modulesFiles.keys().reduce((modules: any, modulePath: any) => {
-  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, "$1");
+  const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1');
   const value = modulesFiles(modulePath);
   modules[moduleName] = value.default;
   return modules;

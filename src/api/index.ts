@@ -1,77 +1,77 @@
-import request from "@/utils/request"
-import { PhoneLogin } from "@/types/Login.Interface"
-import { Banner } from "@/types/Api.interface"
+import request from '@/utils/request';
+import { PhoneLogin } from '@/types/Login.Interface';
+import { Banner } from '@/types/Api.interface';
 
 // 手机号登录
-export function phoneLogin(params: PhoneLogin) {
+export function phoneLogin(params: PhoneLogin): unknown {
   return request({
     url: '/login/cellphone',
     method: 'GET',
     params
-  })
+  });
 }
 
 // 获取用户状态
-export function getUserStatus() {
+export function getUserStatus(): unknown {
   return request({
     url: '/login/status',
     method: 'GET'
-  })
+  });
 }
 
 // 获取banner
-export function getBanner(params: Banner) {
+export function getBanner(params: Banner): unknown {
   return request({
     url: '/banner',
     method: 'GET',
     params
-  }) 
+  });
 }
 
 // 首页-发现-圆形图标入口列表
-export function getHomePageBall() {
+export function getHomePageBall(): unknown {
   return request({
     url: '/homepage/dragon/ball',
     method: 'GET'
-  })
+  });
 }
 
 // 获取每日推荐歌单
-export function getHomeResource() {
+export function getHomeResource(): unknown {
   return request({
     url: '/recommend/resource',
     method: 'GET'
-  })
+  });
 }
 
 // 获取每日推荐歌曲
-export function getHomeRecommondSongs() {
+export function getHomeRecommondSongs(): unknown {
   return request({
     url: '/recommend/songs',
-    method: "GET"
-  })
+    method: 'GET'
+  });
 }
 
 // 获取推荐MV
-export function getHomeMV() {
+export function getHomeMV(): unknown {
   return request({
     url: '/personalized/mv',
     method: 'GET'
-  })
+  });
 }
 
 // 推荐节目
-export function getHomeProgram() {
+export function getHomeProgram(): unknown {
   return request({
     url: '/program/recommend',
     method: 'GET'
-  })
+  });
 }
 
 // 推荐电台
-export function getHomeDj() {
+export function getHomeDj(): unknown {
   return request({
     url: '/personalized/djprogram',
     method: 'GET'
-  })
+  });
 }

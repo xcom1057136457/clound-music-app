@@ -90,11 +90,7 @@
     </div>
 
     <div class="bottom-songs-detail">
-      <div
-        v-for="item in mvList"
-        :key="item.id"
-        class="bottom-songs-item"
-      >
+      <div v-for="item in mvList" :key="item.id" class="bottom-songs-item">
         <div class="top-image">
           <img v-lazy="item.picUrl" />
         </div>
@@ -115,11 +111,7 @@
     </div>
 
     <div class="bottom-songs-detail">
-      <div
-        v-for="item in programList"
-        :key="item.id"
-        class="bottom-songs-item"
-      >
+      <div v-for="item in programList" :key="item.id" class="bottom-songs-item">
         <div class="top-image">
           <img v-lazy="item.coverUrl" />
         </div>
@@ -140,11 +132,7 @@
     </div>
 
     <div class="bottom-songs-detail">
-      <div
-        v-for="item in djList"
-        :key="item.id"
-        class="bottom-songs-item"
-      >
+      <div v-for="item in djList" :key="item.id" class="bottom-songs-item">
         <div class="top-image">
           <img v-lazy="item.picUrl" />
         </div>
@@ -156,7 +144,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, Ref } from "vue";
+import { defineComponent, onMounted, ref, Ref } from 'vue';
 import {
   getBanner,
   getHomePageBall,
@@ -165,7 +153,7 @@ import {
   getHomeMV,
   getHomeProgram,
   getHomeDj
-} from "@/api/index";
+} from '@/api/index';
 export default defineComponent({
   setup() {
     // banner
@@ -182,7 +170,7 @@ export default defineComponent({
     };
 
     // 搜索内容
-    let searchValue = ref("");
+    let searchValue = ref('');
 
     // 首页圆形图标
     let ballList: Ref<any> = ref([]);
@@ -218,32 +206,32 @@ export default defineComponent({
     };
 
     // 推荐mv
-    let mvList: Ref<any> = ref([])
+    let mvList: Ref<any> = ref([]);
     // 获取推荐MV
     let getHomeMVHandler = async () => {
       let { code, result }: any = await getHomeMV();
       if (code == 200) {
-        mvList.value = result
+        mvList.value = result;
       }
     };
 
     // 推荐节目
-    let programList: Ref<any> = ref([])
+    let programList: Ref<any> = ref([]);
     let getHomeProgramHandler = async () => {
-      let { code, programs }: any = await getHomeProgram()
+      let { code, programs }: any = await getHomeProgram();
       if (code == 200) {
-        programList.value = programs
+        programList.value = programs;
       }
-    }
+    };
 
     // 推荐电台
-    let djList: Ref<any> = ref([])
+    let djList: Ref<any> = ref([]);
     let getHomeDjHandler = async () => {
-      let { code, result }: any = await getHomeDj()
+      let { code, result }: any = await getHomeDj();
       if (code == 200) {
-        djList.value = result
+        djList.value = result;
       }
-    }
+    };
 
     onMounted(() => {
       getBannerHandler();
@@ -252,7 +240,7 @@ export default defineComponent({
       getHomeRecommondSongsHandler();
       getHomeMVHandler();
       getHomeProgramHandler();
-      getHomeDjHandler()
+      getHomeDjHandler();
     });
 
     return {

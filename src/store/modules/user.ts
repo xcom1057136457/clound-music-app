@@ -1,8 +1,8 @@
-import { Module, ActionContext } from "vuex";
-import { UserInfoDetail } from "@/types/Login.Interface"
+import { Module, ActionContext } from 'vuex';
+import { UserInfoDetail } from '@/types/Login.Interface';
 
 declare interface State {
-  userInfo: any;
+  userInfo: unknown;
 }
 
 const user: Module<any, any> = {
@@ -18,7 +18,7 @@ const user: Module<any, any> = {
   },
   actions: {
     getUserInfo({ commit }: ActionContext<any, any>, params: UserInfoDetail) {
-      commit("setUserInfo", params);
+      commit('setUserInfo', params);
     }
   }
 };
