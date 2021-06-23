@@ -1,0 +1,17 @@
+html,
+body,
+#app {
+  height: 100%;
+  overflow: hidden;
+  background-color: #fbfcff;
+  font-family: PingFang;
+}
+
+@font-face {
+  font-family: PingFang;
+  src: url("../assets/fonts/PingFang\ Regular.ttf");
+}
+
+* {
+  outline: none;
+}
