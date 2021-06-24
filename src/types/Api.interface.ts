@@ -1,3 +1,3 @@
 export declare interface Banner {
-  type: String | Number
+  type: string | number;
 }

@@ -18,13 +18,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import { TabBarList } from "@/types/Layout.Interface";
+import { defineComponent, reactive, ref } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { TabBarList } from '@/types/Layout.Interface';
 export default defineComponent({
   setup() {
     const route = useRoute();
-    const router = useRouter()
+    const router = useRouter();
 
     // 活动的active
     let active: unknown = route.meta.activeTab || ref(route.name);
@@ -32,19 +32,19 @@ export default defineComponent({
     // tabBar列表
     let tabBarList: Array<TabBarList> = reactive([
       {
-        name: "Home",
-        icon: "home-o",
-        label: "主页"
+        name: 'Home',
+        icon: 'home-o',
+        label: '主页'
       },
       {
-        name: "Topic",
-        icon: "comment-o",
-        label: "话题"
+        name: 'Topic',
+        icon: 'comment-o',
+        label: '话题'
       },
       {
-        name: "DJ",
-        icon: "music-o",
-        label: "电台"
+        name: 'DJ',
+        icon: 'music-o',
+        label: '电台'
       },
       {
         name: 'MV',
@@ -52,9 +52,9 @@ export default defineComponent({
         label: 'MV'
       },
       {
-        name: "My",
-        icon: "manager-o",
-        label: "我的"
+        name: 'My',
+        icon: 'manager-o',
+        label: '我的'
       }
     ]);
 
@@ -62,8 +62,8 @@ export default defineComponent({
     let changeHandler = (active: any) => {
       router.push({
         name: active
-      })
-    }
+      });
+    };
 
     return {
       tabBarList,

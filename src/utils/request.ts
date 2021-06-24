@@ -10,28 +10,28 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
-  (config) => {
-    store.dispatch("global/getLoading", true);
-    config.headers["Authorization"] = getToken() || null;
+  config => {
+    store.dispatch('global/getLoading', true);
+    config.headers['Authorization'] = getToken() || null;
     return config;
   },
-  (err) => {
+  err => {
     Promise.reject(err);
   }
 );
 
 instance.interceptors.response.use(
-  (response) => {
-    store.dispatch("global/getLoading", false);
-    let res = response.data;
+  response => {
+    store.dispatch('global/getLoading', false);
+    const res = response.data;
     if (res.code !== 200) {
-      Toast.fail(res.message || "网络开小差了!");
-      return Promise.reject("error");
+      Toast.fail(res.message || '网络开小差了!');
+      return Promise.reject('error');
     }
     return res;
   },
-  (err) => {
-    Toast.fail(err || "网络开小差了!");
+  err => {
+    Toast.fail(err || '网络开小差了!');
     Promise.reject(err);
   }
 );

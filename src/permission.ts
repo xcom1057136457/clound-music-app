@@ -1,25 +1,30 @@
-import router from "./router";
-import { getToken } from "@/utils/auth";
+import router from './router';
+import { getToken } from '@/utils/auth';
+import { RouteLocationNormalized, NavigationGuardNext } from 'vue-router';
 
-router.beforeEach(async (to: any, from: any, next: any) => {
-  document.title = to.meta.title ? "网易云音乐-" + to.meta.title : "网易云音乐";
-  let token = getToken();
-  setTimeout(() => {
-    window.scroll(0, 0);
-  }, 0);
-  if (!token) {
-    if (to.path == "/login") {
-      next();
+router.beforeEach(
+  async (
+    to: RouteLocationNormalized,
+    from: RouteLocationNormalized,
+    next: NavigationGuardNext
+  ) => {
+    document.title = to.meta.title
+      ? '网易云音乐-' + to.meta.title
+      : '网易云音乐';
+    const token = getToken();
+
+    if (!token) {
+      if (to.path == '/login') {
+        next();
+      } else {
+        next('/login');
+      }
     } else {
-      next("/login");
-    }
-  } else {
-    if (to.path == "/login") {
-      next("/");
-    } else {
-      next();
+      if (to.path == '/login') {
+        next('/');
+      } else {
+        next();
+      }
     }
   }
-});
-
-router.beforeEach(() => {})
+);

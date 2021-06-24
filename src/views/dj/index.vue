@@ -1,13 +1,7 @@
-<template>
-  DJ
-</template>
+<template>DJ</template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
-<style>
-
-</style>
+<style></style>

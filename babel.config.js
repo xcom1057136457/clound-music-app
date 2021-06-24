@@ -1,10 +1,10 @@
 module.exports = {
   plugins: [
     [
-      "import",
+      'import',
       {
-        libraryName: "vant",
-        libraryDirectory: "es",
+        libraryName: 'vant',
+        libraryDirectory: 'es',
         style: true
       }
     ]

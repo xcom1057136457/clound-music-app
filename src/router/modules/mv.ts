@@ -1,5 +1,5 @@
-import { RouteRecordRaw } from "vue-router";
-import Layout from "@/Layout/index.vue";
+import { RouteRecordRaw } from 'vue-router';
+import Layout from '@/Layout/index.vue';
 
 const mv: Array<RouteRecordRaw> = [
   {
@@ -17,6 +17,6 @@ const mv: Array<RouteRecordRaw> = [
       }
     ]
   }
-] 
+];
 
-export default mv
+export default mv;

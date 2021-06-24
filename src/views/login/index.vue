@@ -30,37 +30,37 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, reactive } from "vue";
-import { PhoneLogin, UserInfoDetail } from "@/types/Login.Interface";
-import { phoneLogin } from "@/api/index"
-import { setToken } from "@/utils/auth"
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
+import { defineComponent, reactive } from 'vue';
+import { PhoneLogin, UserInfoDetail } from '@/types/Login.Interface';
+import { phoneLogin } from '@/api/index';
+import { setToken } from '@/utils/auth';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 export default defineComponent({
   setup() {
-    const store = useStore()
-    const router = useRouter()
+    const store = useStore();
+    const router = useRouter();
 
     let formParams: PhoneLogin = reactive({
-      phone: "",
-      password: ""
+      phone: '',
+      password: ''
     });
 
     // 提交
     let onSubmit = async () => {
-      let res: any = await phoneLogin(formParams)
-      
+      let res: any = await phoneLogin(formParams);
+
       if (res.code == 200) {
-        setToken(res.token)
+        setToken(res.token);
         let params: UserInfoDetail = {
           account: res.account,
           bindings: res.bindings,
           profile: res.profile
-        }
-        store.dispatch('user/getUserInfo', params)
+        };
+        store.dispatch('user/getUserInfo', params);
         router.push({
           name: 'Home'
-        })
+        });
       }
     };
 

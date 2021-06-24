@@ -1,7 +1,7 @@
-import { Module , ActionContext } from "vuex";
+import { Module, ActionContext } from 'vuex';
 
 declare interface State {
-  isLoading: Boolean
+  isLoading: boolean;
 }
 
 const global: Module<any, any> = {
@@ -11,13 +11,13 @@ const global: Module<any, any> = {
   },
   getters: {},
   mutations: {
-    setLoading(state: State, data: Boolean) {
-      state.isLoading = data
+    setLoading(state: State, data: boolean) {
+      state.isLoading = data;
     }
   },
   actions: {
-    getLoading({ commit }: ActionContext<any, any>, params: Boolean) {
-      commit("setLoading", params)
+    getLoading({ commit }: ActionContext<any, any>, params: boolean) {
+      commit('setLoading', params);
     }
   }
 };

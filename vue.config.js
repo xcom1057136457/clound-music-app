@@ -22,7 +22,7 @@ module.exports = {
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          ['^' + process.env.VUE_APP_BASEURL]: ""
+          ['^' + process.env.VUE_APP_BASEURL]: ''
         }
       }
     }

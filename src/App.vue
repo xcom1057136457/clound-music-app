@@ -3,9 +3,13 @@
 </template>
 
 <script lang="ts">
-import { Toast } from "vant";
-import { defineComponent, watch } from "vue";
-import { useStore } from "vuex";
+import { Toast } from 'vant';
+import { defineComponent, watch } from 'vue';
+import { useStore } from 'vuex';
+
+declare interface storeVal {
+  isLoading: boolean;
+}
 
 export default defineComponent({
   setup() {
@@ -14,12 +18,12 @@ export default defineComponent({
     // 监听全局toast弹窗
     watch(
       store.state.global,
-      (val: any) => {
+      (val: storeVal) => {
         if (val.isLoading) {
           Toast.loading({
-            message: "加载中...",
+            message: '加载中...',
             forbidClick: true,
-            loadingType: "spinner"
+            loadingType: 'spinner'
           });
         } else {
           Toast.clear();

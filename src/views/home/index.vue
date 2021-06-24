@@ -148,7 +148,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, Ref } from "vue";
+import { defineComponent, onMounted, ref, Ref } from 'vue';
 import {
   getBanner,
   getHomePageBall,
@@ -157,7 +157,7 @@ import {
   getHomeMV,
   getHomeProgram,
   getHomeDj
-} from "@/api/index";
+} from '@/api/index';
 export default defineComponent({
   setup() {
     // banner
@@ -174,7 +174,7 @@ export default defineComponent({
     };
 
     // 搜索内容
-    let searchValue = ref("");
+    let searchValue = ref('');
 
     // 首页圆形图标
     let ballList: Ref<any> = ref([]);

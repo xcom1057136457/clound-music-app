@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import tabBar from "./components/tabBar.vue";
-import { defineComponent } from "vue";
+import tabBar from './components/tabBar.vue';
+import { defineComponent } from 'vue';
 export default defineComponent({
   components: {
     tabBar
