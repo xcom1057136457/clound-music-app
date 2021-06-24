@@ -5,146 +5,204 @@
   </van-sticky>
   <!-- E 顶部搜索 -->
 
-  <!-- S Banner -->
-  <div class="top-banner">
-    <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item v-for="item in bannerList" :key="item.bannerId">
-        <van-image fit="cover" :src="item.pic" lazy-load />
-        <span class="top-title" :style="{ backgroundColor: item.titleColor }">{{
-          item.typeTitle
-        }}</span>
-      </van-swipe-item>
-    </van-swipe>
-  </div>
-  <!-- E Banner -->
-
-  <!-- S 进口 -->
-  <div class="ball-wrapper">
-    <div v-for="item in ballList" :key="item.id" class="ball-item">
-      <div class="ball-icon">
-        <img v-lazy="item.iconUrl" />
+  <van-pull-refresh
+    v-model="state.refreshing"
+    @refresh="onRefresh"
+    success-text="刷新成功"
+  >
+    <van-list
+      v-model:loading="state.loading"
+      :finished="state.finished"
+      finished-text="没有更多了"
+      @load="onLoad"
+    >
+      <!-- S Banner -->
+      <div class="top-banner">
+        <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
+          <van-swipe-item v-for="item in bannerList" :key="item.bannerId">
+            <van-image fit="cover" :src="item.pic" lazy-load />
+            <span
+              class="top-title"
+              :style="{ backgroundColor: item.titleColor }"
+              >{{ item.typeTitle }}</span
+            >
+          </van-swipe-item>
+        </van-swipe>
       </div>
-      <div class="ball-text">{{ item.name }}</div>
-    </div>
-  </div>
-  <!-- E 进口 -->
+      <!-- E Banner -->
 
-  <!-- S 推荐歌单 -->
-  <div class="double-row-detail">
-    <div class="top-text">
-      <div>推荐歌单</div>
-      <div>
-        <span>更多</span>
-        <van-icon name="arrow" />
-      </div>
-    </div>
-
-    <div class="bottom-songs-detail">
-      <div
-        v-for="item in personalizedList"
-        :key="item.id"
-        class="bottom-songs-item"
-      >
-        <div class="top-image">
-          <img v-lazy="item.picUrl" />
+      <!-- S 进口 -->
+      <div class="ball-wrapper">
+        <div v-for="item in ballList" :key="item.id" class="ball-item">
+          <div class="ball-icon">
+            <img v-lazy="item.iconUrl" />
+          </div>
+          <div class="ball-text">{{ item.name }}</div>
         </div>
-        <div class="bottom-text">{{ item.name }}</div>
       </div>
-    </div>
-  </div>
-  <!-- E 推荐歌单 -->
+      <!-- E 进口 -->
 
-  <!-- S 推荐新音乐 -->
-  <div class="simple-row-detail">
-    <div class="top-text">
-      <div>推荐新音乐</div>
-      <div>
-        <span>更多</span>
-        <van-icon name="arrow" />
-      </div>
-    </div>
-
-    <div class="bottom-songs-detail">
-      <div v-for="item in newSong" :key="item.id" class="bottom-songs-item">
-        <div class="top-image">
-          <img v-lazy="item.picUrl" />
+      <!-- S 推荐歌单 -->
+      <div class="double-row-detail">
+        <div class="top-text">
+          <div>推荐歌单</div>
+          <div>
+            <span>更多</span>
+            <van-icon name="arrow" />
+          </div>
         </div>
-        <div class="bottom-text">{{ item.name }}</div>
-      </div>
-    </div>
-  </div>
-  <!-- E 推荐新音乐 -->
 
-  <!-- S 推荐MV -->
-  <div class="simple-row-detail">
-    <div class="top-text">
-      <div>推荐MV</div>
-      <div>
-        <span>更多</span>
-        <van-icon name="arrow" />
-      </div>
-    </div>
-
-    <div class="bottom-songs-detail">
-      <div v-for="item in mvList" :key="item.id" class="bottom-songs-item">
-        <div class="top-image">
-          <img v-lazy="item.picUrl" />
+        <div class="bottom-songs-detail">
+          <div
+            v-for="item in personalizedList"
+            :key="item.id"
+            class="bottom-songs-item"
+          >
+            <div class="top-image">
+              <img v-lazy="item.picUrl" />
+            </div>
+            <div class="bottom-text">{{ item.name }}</div>
+          </div>
         </div>
-        <div class="bottom-text">{{ item.name }}</div>
       </div>
-    </div>
-  </div>
-  <!-- E 推荐MV -->
+      <!-- E 推荐歌单 -->
 
-  <!-- S 推荐节目 -->
-  <div class="double-row-detail">
-    <div class="top-text">
-      <div>推荐节目</div>
-      <div>
-        <span>更多</span>
-        <van-icon name="arrow" />
-      </div>
-    </div>
-
-    <div class="bottom-songs-detail">
-      <div v-for="item in programList" :key="item.id" class="bottom-songs-item">
-        <div class="top-image">
-          <img v-lazy="item.coverUrl" />
+      <!-- S 推荐新音乐 -->
+      <div class="simple-row-detail">
+        <div class="top-text">
+          <div>推荐新音乐</div>
+          <div>
+            <span>更多</span>
+            <van-icon name="arrow" />
+          </div>
         </div>
-        <div class="bottom-text">{{ item.name }}</div>
-      </div>
-    </div>
-  </div>
-  <!-- E 推荐节目 -->
 
-  <!-- S 推荐DJ -->
-  <div class="double-row-detail">
-    <div class="top-text">
-      <div>推荐DJ</div>
-      <div>
-        <span>更多</span>
-        <van-icon name="arrow" />
-      </div>
-    </div>
-
-    <div class="bottom-songs-detail">
-      <div v-for="item in djList" :key="item.id" class="bottom-songs-item">
-        <div class="top-image">
-          <img v-lazy="item.picUrl" />
+        <div class="bottom-songs-detail">
+          <div v-for="item in newSong" :key="item.id" class="bottom-songs-item">
+            <div class="top-image">
+              <img v-lazy="item.picUrl" />
+            </div>
+            <div class="bottom-text">{{ item.name }}</div>
+          </div>
         </div>
-        <div class="bottom-text">{{ item.name }}</div>
       </div>
-    </div>
-  </div>
-  <!-- E 推荐DJ -->
+      <!-- E 推荐新音乐 -->
 
-  <!-- S 分割线 -->
-  <van-divider>到底了哦</van-divider>
-  <!-- E 分割线 -->
+      <!-- S 推荐节目 -->
+      <div class="double-row-detail">
+        <div class="top-text">
+          <div>推荐节目</div>
+          <div>
+            <span>更多</span>
+            <van-icon name="arrow" />
+          </div>
+        </div>
+
+        <div class="bottom-songs-detail">
+          <div
+            v-for="item in programList"
+            :key="item.id"
+            class="bottom-songs-item"
+          >
+            <div class="top-image">
+              <img v-lazy="item.coverUrl" />
+            </div>
+            <div class="bottom-text">{{ item.name }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- E 推荐节目 -->
+
+      <!-- S 推荐DJ -->
+      <div class="double-row-detail">
+        <div class="top-text">
+          <div>推荐DJ</div>
+          <div>
+            <span>更多</span>
+            <van-icon name="arrow" />
+          </div>
+        </div>
+
+        <div class="bottom-songs-detail">
+          <div v-for="item in djList" :key="item.id" class="bottom-songs-item">
+            <div class="top-image">
+              <img v-lazy="item.picUrl" />
+            </div>
+            <div class="bottom-text">{{ item.name }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- E 推荐DJ -->
+
+      <!-- S 推荐MV -->
+      <div class="simple-row-detail">
+        <div class="top-text">
+          <div>推荐MV</div>
+          <div>
+            <span>更多</span>
+            <van-icon name="arrow" />
+          </div>
+        </div>
+
+        <div class="bottom-songs-detail">
+          <div v-for="item in mvList" :key="item.id" class="bottom-songs-item">
+            <div class="top-image">
+              <img v-lazy="item.picUrl" />
+            </div>
+            <div class="bottom-text">{{ item.name }}</div>
+          </div>
+        </div>
+      </div>
+      <!-- E 推荐MV -->
+
+      <!-- S 榜单 -->
+      <div class="topList-wrapper">
+        <div class="top-text">
+          <div>排行榜</div>
+          <div>
+            <span>更多</span>
+            <van-icon name="arrow" />
+          </div>
+        </div>
+
+        <div class="bottom-detail">
+          <div v-for="item in topPlayList" :key="item.id">
+            <div class="top-text">
+              {{ item.name }}
+              <van-icon name="arrow" />
+            </div>
+            <div class="bottom-songs">
+              <div
+                v-for="(actItem, index) in item.tracks.slice(0, 3)"
+                :key="actItem.id"
+              >
+                <div class="left-image">
+                  <img v-lazy="actItem.al.picUrl" />
+                </div>
+
+                <div class="right-detail">
+                  <div class="song-index">{{ index + 1 }}</div>
+
+                  <div class="song-name">{{ actItem.name }}</div>
+
+                  <div class="song-devide">-</div>
+
+                  <div class="song-singer">{{ actItem.ar[0].name }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- E 榜单 -->
+    </van-list>
+  </van-pull-refresh>
+
+  <div></div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, Ref } from 'vue';
+import { defineComponent, onMounted, reactive, ref, Ref } from 'vue';
 import {
   getBanner,
   getHomePageBall,
@@ -152,8 +210,17 @@ import {
   getHomeProgram,
   getHomeDj,
   getPersonalized,
-  getNewSong
+  getNewSong,
+  getTopList,
+  getPlayListDetail
 } from '@/api/index';
+
+declare interface ListState {
+  loading: boolean;
+  finished: boolean;
+  refreshing: boolean;
+}
+
 export default defineComponent({
   setup() {
     // banner
@@ -233,6 +300,52 @@ export default defineComponent({
       }
     };
 
+    // list状态
+    let state: ListState = reactive({
+      loading: false,
+      finished: false,
+      refreshing: false
+    });
+
+    let onRefresh = () => {
+      getBannerHandler();
+      getHomePageBallHandler();
+      getHomeMVHandler();
+      getHomeProgramHandler();
+      getHomeDjHandler();
+      getPersonalizedHandler();
+      getNewSongHandler();
+      setTimeout(() => {
+        state.refreshing = false;
+      }, 1000);
+    };
+
+    let onLoad = () => {
+      state.finished = true;
+    };
+
+    // 获取榜单
+    let getTopListHandler = async () => {
+      let { code, list }: any = await getTopList();
+      if (code == 200) {
+        for (let i = 0; i <= 2; i++) {
+          getPlayListDetailHandler(list[i].id);
+        }
+      }
+    };
+
+    // 获取榜单详情
+    let topPlayList: Ref<any> = ref([]);
+    let getPlayListDetailHandler = (id: number) => {
+      getPlayListDetail({
+        id
+      }).then((res: any) => {
+        if (res.code == 200) {
+          topPlayList.value.push(res.playlist);
+        }
+      });
+    };
+
     onMounted(() => {
       getBannerHandler();
       getHomePageBallHandler();
@@ -241,6 +354,7 @@ export default defineComponent({
       getHomeDjHandler();
       getPersonalizedHandler();
       getNewSongHandler();
+      getTopListHandler();
     });
 
     return {
@@ -251,7 +365,11 @@ export default defineComponent({
       programList,
       djList,
       personalizedList,
-      newSong
+      newSong,
+      onRefresh,
+      onLoad,
+      state,
+      topPlayList
     };
   }
 });
@@ -374,7 +492,7 @@ export default defineComponent({
         -webkit-box-orient: vertical;
         margin-top: 5px;
         line-height: 1.5em;
-        height: 38px;
+        // height: 38px;
       }
     }
   }
@@ -433,6 +551,96 @@ export default defineComponent({
         white-space: nowrap;
         width: 106px;
         text-align: center;
+      }
+    }
+  }
+}
+
+.topList-wrapper {
+  margin-top: 10px;
+  background-color: #fff;
+  > .top-text {
+    padding: 10px 10px 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    > div {
+      &:first-child {
+        font-weight: bold;
+      }
+
+      &:last-child {
+        font-size: 12px;
+      }
+    }
+  }
+  > .bottom-detail {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
+    > div {
+      flex: 0 0 90%;
+      box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      margin: 10px;
+      > .top-text {
+        font-size: 14px;
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 0;
+      }
+      > .bottom-songs {
+        padding: 0 10px;
+        > div {
+          display: flex;
+          align-items: center;
+          margin: 10px 0;
+        }
+        .left-image {
+          width: 50px;
+          height: 50px;
+          overflow: hidden;
+          border-radius: 5px;
+          margin-right: 10px;
+          > img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .right-detail {
+          flex: 0 0 247.5px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: flex;
+          align-items: center;
+        }
+
+        .song-index {
+          margin-right: 10px;
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        .song-name {
+          font-size: 14px;
+          color: #333;
+          font-weight: bold;
+        }
+
+        .song-devide {
+          margin: 0 5px;
+          vertical-align: middle;
+        }
+
+        .song-singer {
+          font-size: 12px;
+          color: #666;
+        }
       }
     }
   }

@@ -93,3 +93,20 @@ export function getNewSong(params: unknown): unknown {
     params
   });
 }
+
+// 获取所有榜单
+export function getTopList(): unknown {
+  return request({
+    url: '/toplist',
+    method: 'get'
+  });
+}
+
+// 获取歌单详情
+export function getPlayListDetail(params: any): any {
+  return request({
+    url: '/playlist/detail',
+    method: 'get',
+    params
+  });
+}

@@ -12,8 +12,10 @@ import {
   Search,
   Icon,
   Sticky,
-  Divider
-} from "vant";
+  Divider,
+  List,
+  PullRefresh
+} from 'vant';
 
 const vantList: any = {
   Button,
@@ -29,7 +31,9 @@ const vantList: any = {
   Search,
   Icon,
   Sticky,
-  Divider
+  Divider,
+  List,
+  PullRefresh
 };
 
 export default vantList;
