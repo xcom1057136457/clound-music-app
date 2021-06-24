@@ -30,7 +30,7 @@
   <!-- E 进口 -->
 
   <!-- S 推荐歌单 -->
-  <div class="recommond-songs-list">
+  <div class="double-row-detail">
     <div class="top-text">
       <div>推荐歌单</div>
       <div>
@@ -55,7 +55,7 @@
   <!-- E 推荐歌单 -->
 
   <!-- S 推荐歌曲 -->
-  <div class="recommond-songs">
+  <div class="simple-row-detail">
     <div class="top-text">
       <div>推荐歌曲</div>
       <div>
@@ -80,7 +80,7 @@
   <!-- E 推荐歌曲 -->
 
   <!-- S 推荐MV -->
-  <div class="recommond-MV">
+  <div class="simple-row-detail">
     <div class="top-text">
       <div>推荐MV</div>
       <div>
@@ -90,11 +90,7 @@
     </div>
 
     <div class="bottom-songs-detail">
-      <div
-        v-for="item in mvList"
-        :key="item.id"
-        class="bottom-songs-item"
-      >
+      <div v-for="item in mvList" :key="item.id" class="bottom-songs-item">
         <div class="top-image">
           <img v-lazy="item.picUrl" />
         </div>
@@ -105,7 +101,7 @@
   <!-- E 推荐MV -->
 
   <!-- S 推荐节目 -->
-  <div class="recommond-songs-list">
+  <div class="double-row-detail">
     <div class="top-text">
       <div>推荐节目</div>
       <div>
@@ -115,11 +111,7 @@
     </div>
 
     <div class="bottom-songs-detail">
-      <div
-        v-for="item in programList"
-        :key="item.id"
-        class="bottom-songs-item"
-      >
+      <div v-for="item in programList" :key="item.id" class="bottom-songs-item">
         <div class="top-image">
           <img v-lazy="item.coverUrl" />
         </div>
@@ -130,7 +122,7 @@
   <!-- E 推荐节目 -->
 
   <!-- S 推荐DJ -->
-  <div class="recommond-songs-list">
+  <div class="double-row-detail">
     <div class="top-text">
       <div>推荐DJ</div>
       <div>
@@ -140,11 +132,7 @@
     </div>
 
     <div class="bottom-songs-detail">
-      <div
-        v-for="item in djList"
-        :key="item.id"
-        class="bottom-songs-item"
-      >
+      <div v-for="item in djList" :key="item.id" class="bottom-songs-item">
         <div class="top-image">
           <img v-lazy="item.picUrl" />
         </div>
@@ -153,6 +141,10 @@
     </div>
   </div>
   <!-- E 推荐DJ -->
+
+  <!-- S 分割线 -->
+  <van-divider>到底了哦</van-divider>
+  <!-- E 分割线 -->
 </template>
 
 <script lang="ts">
@@ -218,32 +210,32 @@ export default defineComponent({
     };
 
     // 推荐mv
-    let mvList: Ref<any> = ref([])
+    let mvList: Ref<any> = ref([]);
     // 获取推荐MV
     let getHomeMVHandler = async () => {
       let { code, result }: any = await getHomeMV();
       if (code == 200) {
-        mvList.value = result
+        mvList.value = result;
       }
     };
 
     // 推荐节目
-    let programList: Ref<any> = ref([])
+    let programList: Ref<any> = ref([]);
     let getHomeProgramHandler = async () => {
-      let { code, programs }: any = await getHomeProgram()
+      let { code, programs }: any = await getHomeProgram();
       if (code == 200) {
-        programList.value = programs
+        programList.value = programs;
       }
-    }
+    };
 
     // 推荐电台
-    let djList: Ref<any> = ref([])
+    let djList: Ref<any> = ref([]);
     let getHomeDjHandler = async () => {
-      let { code, result }: any = await getHomeDj()
+      let { code, result }: any = await getHomeDj();
       if (code == 200) {
-        djList.value = result
+        djList.value = result;
       }
-    }
+    };
 
     onMounted(() => {
       getBannerHandler();
@@ -252,7 +244,7 @@ export default defineComponent({
       getHomeRecommondSongsHandler();
       getHomeMVHandler();
       getHomeProgramHandler();
-      getHomeDjHandler()
+      getHomeDjHandler();
     });
 
     return {
@@ -331,7 +323,7 @@ export default defineComponent({
   }
 }
 
-.recommond-songs-list {
+.double-row-detail {
   padding: 10px;
   margin-top: 10px;
   background-color: #fff;
@@ -392,7 +384,7 @@ export default defineComponent({
   }
 }
 
-.recommond-songs {
+.simple-row-detail {
   padding: 10px;
   margin-top: 10px;
   background-color: #fff;
@@ -450,61 +442,7 @@ export default defineComponent({
   }
 }
 
-.recommond-MV {
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #fff;
-  > .top-text {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 14px;
-    > div {
-      &:first-child {
-        font-weight: bold;
-      }
-
-      &:last-child {
-        font-size: 12px;
-      }
-    }
-  }
-  .bottom-songs-detail {
-    display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
-    margin-top: 10px;
-    > .bottom-songs-item {
-      flex: 0 0 30%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
-      &:last-child {
-        margin-right: 0;
-      }
-      .top-image {
-        width: 100%;
-        height: auto;
-        overflow: hidden;
-        border-radius: 4px;
-        > img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      .bottom-text {
-        font-size: 12px;
-        margin-top: 10px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-        width: 106px;
-        text-align: center;
-      }
-    }
-  }
+.van-divider {
+  margin: 10px;
 }
 </style>

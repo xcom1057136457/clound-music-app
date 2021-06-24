@@ -11,7 +11,8 @@ import {
   Lazyload,
   Search,
   Icon,
-  Sticky
+  Sticky,
+  Divider
 } from "vant";
 
 const vantList: any = {
@@ -27,7 +28,8 @@ const vantList: any = {
   Lazyload,
   Search,
   Icon,
-  Sticky
+  Sticky,
+  Divider
 };
 
 export default vantList;
