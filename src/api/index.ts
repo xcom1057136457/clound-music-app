@@ -75,3 +75,21 @@ export function getHomeDj(): unknown {
     method: 'GET'
   });
 }
+
+// 推荐歌单
+export function getPersonalized(params: unknown): unknown {
+  return request({
+    url: '/personalized',
+    method: 'get',
+    params
+  });
+}
+
+// 推荐新音乐
+export function getNewSong(params: unknown): unknown {
+  return request({
+    url: '/personalized/newsong',
+    method: 'get',
+    params
+  });
+}

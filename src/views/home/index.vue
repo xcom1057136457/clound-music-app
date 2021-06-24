@@ -41,7 +41,7 @@
 
     <div class="bottom-songs-detail">
       <div
-        v-for="item in resourceList"
+        v-for="item in personalizedList"
         :key="item.id"
         class="bottom-songs-item"
       >
@@ -54,10 +54,10 @@
   </div>
   <!-- E 推荐歌单 -->
 
-  <!-- S 推荐歌曲 -->
+  <!-- S 推荐新音乐 -->
   <div class="simple-row-detail">
     <div class="top-text">
-      <div>推荐歌曲</div>
+      <div>推荐新音乐</div>
       <div>
         <span>更多</span>
         <van-icon name="arrow" />
@@ -65,19 +65,15 @@
     </div>
 
     <div class="bottom-songs-detail">
-      <div
-        v-for="item in recommondSongs"
-        :key="item.al.id"
-        class="bottom-songs-item"
-      >
+      <div v-for="item in newSong" :key="item.id" class="bottom-songs-item">
         <div class="top-image">
-          <img v-lazy="item.al.picUrl" />
+          <img v-lazy="item.picUrl" />
         </div>
         <div class="bottom-text">{{ item.name }}</div>
       </div>
     </div>
   </div>
-  <!-- E 推荐歌曲 -->
+  <!-- E 推荐新音乐 -->
 
   <!-- S 推荐MV -->
   <div class="simple-row-detail">
@@ -152,11 +148,11 @@ import { defineComponent, onMounted, ref, Ref } from 'vue';
 import {
   getBanner,
   getHomePageBall,
-  getHomeResource,
-  getHomeRecommondSongs,
   getHomeMV,
   getHomeProgram,
-  getHomeDj
+  getHomeDj,
+  getPersonalized,
+  getNewSong
 } from '@/api/index';
 export default defineComponent({
   setup() {
@@ -187,25 +183,14 @@ export default defineComponent({
       }
     };
 
-    // 每日歌单
-    let resourceList: Ref<any> = ref([]);
-
-    // 获取每日歌单
-    let getHomeResourceHandler = async () => {
-      let { code, recommend }: any = await getHomeResource();
+    // 推荐歌单
+    let personalizedList: Ref<any> = ref([]);
+    let getPersonalizedHandler = async () => {
+      let { code, result }: any = await getPersonalized({
+        limit: 10
+      });
       if (code == 200) {
-        resourceList.value = recommend;
-      }
-    };
-
-    // 每日推荐歌曲
-    let recommondSongs: Ref<any> = ref([]);
-
-    // 获取每日推荐歌曲
-    let getHomeRecommondSongsHandler = async () => {
-      let { code, data }: any = await getHomeRecommondSongs();
-      if (code == 200) {
-        recommondSongs.value = data.dailySongs;
+        personalizedList.value = result;
       }
     };
 
@@ -237,25 +222,36 @@ export default defineComponent({
       }
     };
 
+    // 推荐新音乐
+    let newSong: Ref<any> = ref([]);
+    let getNewSongHandler = async () => {
+      let { code, result }: any = await getNewSong({
+        limit: 10
+      });
+      if (code == 200) {
+        newSong.value = result;
+      }
+    };
+
     onMounted(() => {
       getBannerHandler();
       getHomePageBallHandler();
-      getHomeResourceHandler();
-      getHomeRecommondSongsHandler();
       getHomeMVHandler();
       getHomeProgramHandler();
       getHomeDjHandler();
+      getPersonalizedHandler();
+      getNewSongHandler();
     });
 
     return {
       bannerList,
       searchValue,
       ballList,
-      resourceList,
-      recommondSongs,
       mvList,
       programList,
-      djList
+      djList,
+      personalizedList,
+      newSong
     };
   }
 });

@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { Toast } from 'vant';
-import { getToken } from './auth';
 import store from '@/store/index';
 
 const instance = axios.create({
@@ -11,13 +10,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   config => {
-    console.log('config', config);
-    let proxy = window.location.host;
-    console.log(proxy);
-    // config.url = config.url + '&' + proxy
-    config.params && (config.params.realIP = proxy);
     store.dispatch('global/getLoading', true);
-    config.headers['Authorization'] = getToken() || null;
     return config;
   },
   err => {
