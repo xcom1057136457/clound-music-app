@@ -7,8 +7,12 @@ import './permission';
 import './styles/index.scss';
 import * as vant from './plugins/vant';
 import 'vant/lib/index.css';
+import mitt from 'mitt';
 
 const app = createApp(App);
+
+const $bus = mitt();
+app.config.globalProperties.$bus = $bus;
 
 Object.keys(vant.default).forEach((key: string) => {
   app.use(vant.default[key]);
