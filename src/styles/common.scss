@@ -9,9 +9,34 @@ body,
 
 @font-face {
   font-family: PingFang;
-  src: url("../assets/fonts/PingFang\ Regular.ttf");
+  src: url('../assets/fonts/PingFang\ Regular.ttf');
 }
 
 * {
   outline: none;
+}
+
+.symbolIcon {
+  width: 22px;
+  height: 22px;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.van-dialog__message {
+  padding: 10px !important;
+}
+
+.van-dialog__content--isolated {
+  min-height: 80px !important;
+}
+
+.van-dialog__footer {
+  .van-button {
+    font-size: 14px !important;
+  }
+  .van-dialog__confirm {
+    color: rgba(184, 20, 20, 0.8) !important;
+  }
 }
