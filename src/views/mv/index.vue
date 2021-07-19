@@ -1,12 +1,10 @@
 <template>mv</template>
 
 <script lang="ts" setup>
-import { onMounted } from "vue"
+import { useRoute, RouteLocationNormalizedLoaded } from 'vue-router';
 
-onMounted(() => {
-  console.log(1111);
-  
-})
+const route: RouteLocationNormalizedLoaded = useRoute();
+console.log('route', route);
 </script>
 
 <style></style>

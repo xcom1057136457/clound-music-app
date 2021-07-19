@@ -240,7 +240,7 @@ export default defineComponent({
     let searchValue = ref('');
 
     // 首页圆形图标
-    let ballList: Ref<any> = ref([]);
+    let ballList: Ref<unknown> = ref([]);
 
     // 获取首页圆形图标
     let getHomePageBallHandler = async () => {
@@ -251,7 +251,7 @@ export default defineComponent({
     };
 
     // 推荐歌单
-    let personalizedList: Ref<any> = ref([]);
+    let personalizedList: Ref<unknown> = ref([]);
     let getPersonalizedHandler = async () => {
       let { code, result }: any = await getPersonalized({
         limit: 10
@@ -262,7 +262,7 @@ export default defineComponent({
     };
 
     // 推荐mv
-    let mvList: Ref<any> = ref([]);
+    let mvList: Ref<unknown> = ref([]);
     // 获取推荐MV
     let getHomeMVHandler = async () => {
       let { code, result }: any = await getHomeMV();
@@ -272,7 +272,7 @@ export default defineComponent({
     };
 
     // 推荐节目
-    let programList: Ref<any> = ref([]);
+    let programList: Ref<unknown> = ref([]);
     let getHomeProgramHandler = async () => {
       let { code, programs }: any = await getHomeProgram();
       if (code == 200) {
@@ -281,7 +281,7 @@ export default defineComponent({
     };
 
     // 推荐电台
-    let djList: Ref<any> = ref([]);
+    let djList: Ref<unknown> = ref([]);
     let getHomeDjHandler = async () => {
       let { code, result }: any = await getHomeDj();
       if (code == 200) {
@@ -290,7 +290,7 @@ export default defineComponent({
     };
 
     // 推荐新音乐
-    let newSong: Ref<any> = ref([]);
+    let newSong: Ref<unknown> = ref([]);
     let getNewSongHandler = async () => {
       let { code, result }: any = await getNewSong({
         limit: 10
