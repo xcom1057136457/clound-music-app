@@ -109,7 +109,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { computed, onMounted, ref, Ref } from '@vue/runtime-core';
+import { computed, ref, Ref } from '@vue/runtime-core';
 import { useStore, Store } from 'vuex';
 import { Dialog } from 'vant';
 import { removeToken } from "@/utils/auth"
