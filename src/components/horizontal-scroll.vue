@@ -22,6 +22,8 @@ export default defineComponent({
       bs.value = new BScroll(scroll.value, {
         scrollX: true,
         scrollY: false,
+        click: true,
+        stopPropagation: true,
         probeType: 3 // listening scroll event
       });
     };
@@ -30,6 +32,10 @@ export default defineComponent({
       proxy.$bus.on('refresh', () => {
         init()
       })
+
+      setTimeout(() => {
+        init()
+      }, 2000)
     });
 
     return {

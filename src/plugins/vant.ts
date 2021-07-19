@@ -14,7 +14,12 @@ import {
   Sticky,
   Divider,
   List,
-  PullRefresh
+  PullRefresh,
+  Grid,
+  GridItem,
+  Cell,
+  CellGroup,
+  Dialog
 } from 'vant';
 
 const vantList: any = {
@@ -33,7 +38,12 @@ const vantList: any = {
   Sticky,
   Divider,
   List,
-  PullRefresh
+  PullRefresh,
+  Grid,
+  GridItem,
+  Cell,
+  CellGroup,
+  Dialog
 };
 
 export default vantList;

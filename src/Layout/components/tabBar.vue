@@ -12,8 +12,14 @@
       :key="index"
       :icon="item.icon"
       :name="item.name"
-      >{{ item.label }}</van-tabbar-item
     >
+      <template #icon>
+        <svg class="symbolIcon" aria-hidden="true">
+          <use :xlink:href="'#' + item.icon"></use>
+        </svg>
+      </template>
+      <span>{{ item.label }}</span>
+    </van-tabbar-item>
   </van-tabbar>
 </template>
 
@@ -33,27 +39,27 @@ export default defineComponent({
     let tabBarList: Array<TabBarList> = reactive([
       {
         name: 'Home',
-        icon: 'home-o',
+        icon: 'icon-shezhi',
         label: '主页'
       },
       {
         name: 'Topic',
-        icon: 'comment-o',
+        icon: 'icon-duanxin',
         label: '话题'
       },
       {
         name: 'DJ',
-        icon: 'music-o',
+        icon: 'icon-diantai',
         label: '电台'
       },
       {
         name: 'MV',
-        icon: 'video-o',
+        icon: 'icon-shipinzhongxin',
         label: 'MV'
       },
       {
         name: 'My',
-        icon: 'manager-o',
+        icon: 'icon-youxi',
         label: '我的'
       }
     ]);
