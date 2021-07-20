@@ -4,7 +4,7 @@
       <div
         class="ignore-content"
         :style="{
-          backgroundImage: `url(${playListDetail.backgroundCoverUrl})`
+          backgroundImage: `url(${playListDetail.coverImgUrl})`
         }"
       ></div>
       <div class="scroll-content"></div>
