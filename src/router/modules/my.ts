@@ -12,7 +12,8 @@ const my: Array<RouteRecordRaw> = [
         name: 'My',
         component: () => import('@/views/my/index.vue'),
         meta: {
-          title: '我的'
+          title: '我的',
+          navBar: false
         }
       }
     ]

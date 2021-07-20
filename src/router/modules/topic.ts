@@ -12,7 +12,8 @@ const topic: Array<RouteRecordRaw> = [
         name: 'Topic',
         component: () => import('@/views/topic/index.vue'),
         meta: {
-          title: '话题页'
+          title: '话题页',
+          navBar: false
         }
       }
     ]

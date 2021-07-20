@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 
 const modulesFiles: any = require.context('./modules', true, /\.ts$/);
 
-const routeModules: any = [];
+const routeModules: Array<any> = [];
 
 modulesFiles.keys().reduce((modules: unknown, modulePath: unknown) => {
   routeModules.push(...modulesFiles(modulePath).default);

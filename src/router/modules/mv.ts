@@ -12,7 +12,8 @@ const mv: Array<RouteRecordRaw> = [
         name: 'MV',
         component: () => import('@/views/mv/index.vue'),
         meta: {
-          title: 'MV'
+          title: 'MV',
+          navBar: false
         }
       }
     ]

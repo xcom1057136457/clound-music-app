@@ -19,7 +19,8 @@ import {
   GridItem,
   Cell,
   CellGroup,
-  Dialog
+  Dialog,
+  NavBar
 } from 'vant';
 
 const vantList: any = {
@@ -43,7 +44,8 @@ const vantList: any = {
   GridItem,
   Cell,
   CellGroup,
-  Dialog
+  Dialog,
+  NavBar
 };
 
 export default vantList;

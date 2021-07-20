@@ -57,6 +57,7 @@
             v-for="item in personalizedList"
             :key="item.id"
             class="bottom-songs-item"
+            @click="goPlayListDetail(item.id)"
           >
             <div class="top-image">
               <img v-lazy="item.picUrl" />
@@ -214,6 +215,7 @@ import {
   getTopList,
   getPlayListDetail
 } from '@/api/index';
+import { useRouter, Router } from 'vue-router';
 
 declare interface ListState {
   loading: boolean;
@@ -223,8 +225,10 @@ declare interface ListState {
 
 export default defineComponent({
   setup() {
+    const router: Router = useRouter();
+
     // banner
-    let bannerList: Ref<any> = ref([]);
+    let bannerList: Ref<unknown> = ref([]);
 
     // 获取banner
     let getBannerHandler = async () => {
@@ -346,6 +350,16 @@ export default defineComponent({
       });
     };
 
+    // 进入歌单详情
+    let goPlayListDetail = (id: number) => {
+      router.push({
+        name: 'PlayListDetail',
+        query: {
+          id
+        }
+      });
+    };
+
     onMounted(() => {
       getBannerHandler();
       getHomePageBallHandler();
@@ -369,7 +383,8 @@ export default defineComponent({
       onRefresh,
       onLoad,
       state,
-      topPlayList
+      topPlayList,
+      goPlayListDetail
     };
   }
 });
@@ -473,8 +488,8 @@ export default defineComponent({
         margin-right: 0;
       }
       .top-image {
-        width: 100%;
-        height: auto;
+        width: 106.5px;
+        height: 106.5px;
         overflow: hidden;
         border-radius: 4px;
         > img {
@@ -492,7 +507,7 @@ export default defineComponent({
         -webkit-box-orient: vertical;
         margin-top: 5px;
         line-height: 1.5em;
-        // height: 38px;
+        height: 36px;
       }
     }
   }

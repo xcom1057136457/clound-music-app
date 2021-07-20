@@ -13,7 +13,18 @@ const home: Array<RouteRecordRaw> = [
         component: () => import('@/views/home/index.vue'),
         meta: {
           title: '主页',
-          keepAlive: true
+          keepAlive: true,
+          navBar: false
+        }
+      },
+      {
+        path: '/playListDetail',
+        name: 'PlayListDetail',
+        component: () => import('@/views/playListDetail/index.vue'),
+        meta: {
+          title: '歌单详情',
+          keepAlive: false,
+          tabBar: false
         }
       }
     ]

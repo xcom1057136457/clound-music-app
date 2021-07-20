@@ -29,7 +29,7 @@ export default defineComponent({
           Toast.clear();
         }
       },
-      { deep: true }
+      { deep: true, immediate: true }
     );
   }
 });

@@ -1,6 +1,6 @@
 import request from '@/utils/request';
 import { PhoneLogin } from '@/types/Login.Interface';
-import { Banner } from '@/types/Api.interface';
+import { Banner, GetPlayListDetailParams } from '@/types/Api.interface';
 
 // 手机号登录
 export function phoneLogin(params: PhoneLogin): unknown {
@@ -103,7 +103,7 @@ export function getTopList(): unknown {
 }
 
 // 获取歌单详情
-export function getPlayListDetail(params: any): any {
+export function getPlayListDetail(params: GetPlayListDetailParams): any {
   return request({
     url: '/playlist/detail',
     method: 'get',

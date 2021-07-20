@@ -12,7 +12,8 @@ const dj: Array<RouteRecordRaw> = [
         name: 'DJ',
         component: () => import('@/views/dj/index.vue'),
         meta: {
-          title: 'DJ'
+          title: 'DJ',
+          navBar: false
         }
       }
     ]
