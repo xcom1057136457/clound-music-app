@@ -23,7 +23,8 @@ export default defineComponent({
           Toast.loading({
             message: '加载中...',
             forbidClick: true,
-            loadingType: 'spinner'
+            loadingType: 'spinner',
+            duration: 10000000000
           });
         } else {
           Toast.clear();

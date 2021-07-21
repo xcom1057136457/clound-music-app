@@ -18,7 +18,7 @@ const home: Array<RouteRecordRaw> = [
         }
       },
       {
-        path: '/playListDetail',
+        path: '/playListDetail/:playListId',
         name: 'PlayListDetail',
         component: () => import('@/views/playListDetail/index.vue'),
         meta: {

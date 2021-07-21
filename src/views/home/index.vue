@@ -79,7 +79,12 @@
         </div>
 
         <div class="bottom-songs-detail">
-          <div v-for="item in newSong" :key="item.id" class="bottom-songs-item">
+          <div
+            v-for="item in newSong"
+            :key="item.id"
+            class="bottom-songs-item"
+            @click="goPlayListDetail(item.id)"
+          >
             <div class="top-image">
               <img v-lazy="item.picUrl" />
             </div>
@@ -354,8 +359,8 @@ export default defineComponent({
     let goPlayListDetail = (id: number) => {
       router.push({
         name: 'PlayListDetail',
-        query: {
-          id
+        params: {
+          playListId: id
         }
       });
     };

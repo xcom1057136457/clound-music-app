@@ -29,7 +29,7 @@ instance.interceptors.response.use(
     return res;
   },
   err => {
-    Toast.fail(err || '网络开小差了!');
+    Toast.fail(err.message || '网络开小差了!');
     Promise.reject(err);
   }
 );

@@ -5,3 +5,8 @@ export declare interface Banner {
 export declare interface GetPlayListDetailParams {
   id?: string | number;
 }
+
+export declare interface PageParams {
+  limit?: number;
+  offset?: number
+}

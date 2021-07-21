@@ -20,7 +20,9 @@ import {
   Cell,
   CellGroup,
   Dialog,
-  NavBar
+  NavBar,
+  Row,
+  Col
 } from 'vant';
 
 const vantList: any = {
@@ -45,7 +47,9 @@ const vantList: any = {
   Cell,
   CellGroup,
   Dialog,
-  NavBar
+  NavBar,
+  Row,
+  Col
 };
 
 export default vantList;

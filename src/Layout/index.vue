@@ -1,13 +1,5 @@
 <template>
   <div class="layout-wrapper">
-    <van-sticky v-if="$route.meta && $route.meta.navBar !== false">
-      <van-nav-bar
-        :title="$route.meta.title || $route.name"
-        left-text="返回"
-        left-arrow
-        @click-left="onClickLeft"
-      />
-    </van-sticky>
     <div class="detail-wrapper">
       <router-view v-if="!$route.meta.keepAlive" />
       <router-view v-slot="{ Component }" v-else>
@@ -58,4 +50,5 @@ export default defineComponent({
     overflow: auto;
   }
 }
+
 </style>

@@ -1,6 +1,6 @@
 import request from '@/utils/request';
 import { PhoneLogin } from '@/types/Login.Interface';
-import { Banner, GetPlayListDetailParams } from '@/types/Api.interface';
+import { Banner, GetPlayListDetailParams, PageParams } from '@/types/Api.interface';
 
 // 手机号登录
 export function phoneLogin(params: PhoneLogin): unknown {
@@ -109,4 +109,13 @@ export function getPlayListDetail(params: GetPlayListDetailParams): any {
     method: 'get',
     params
   });
+}
+
+// 获取话题
+export function getTopic(params: PageParams) {
+  return request({
+    url: '/hot/topic',
+    method: 'get',
+    params
+  })
 }
