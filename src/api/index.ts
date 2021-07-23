@@ -1,11 +1,32 @@
 import request from '@/utils/request';
 import { PhoneLogin } from '@/types/Login.Interface';
-import { Banner, GetPlayListDetailParams, PageParams } from '@/types/Api.interface';
+import {
+  Banner,
+  GetPlayListDetailParams,
+  PageParams
+} from '@/types/Api.interface';
+
+enum Api {
+  phoneLogin = '/login/cellphone',
+  getUserStatus = '/login/status',
+  getBanner = '/banner',
+  getHomePageBall = '/homepage/dragon/ball',
+  getHomeResource = '/recommend/resource',
+  getHomeRecommondSongs = '/recommend/songs',
+  getHomeMV = '/personalized/mv',
+  getHomeProgram = '/program/recommend',
+  getHomeDj = '/personalized/djprogram',
+  getPersonalized = '/personalized',
+  getNewSong = '/personalized/newsong',
+  getTopList = '/toplist',
+  getPlayListDetail = '/playlist/detail',
+  getTopic = '/hot/topic'
+}
 
 // 手机号登录
 export function phoneLogin(params: PhoneLogin): unknown {
   return request({
-    url: '/login/cellphone',
+    url: Api.phoneLogin,
     method: 'GET',
     params
   });
@@ -14,7 +35,7 @@ export function phoneLogin(params: PhoneLogin): unknown {
 // 获取用户状态
 export function getUserStatus(): unknown {
   return request({
-    url: '/login/status',
+    url: Api.getUserStatus,
     method: 'GET'
   });
 }
@@ -22,7 +43,7 @@ export function getUserStatus(): unknown {
 // 获取banner
 export function getBanner(params: Banner): unknown {
   return request({
-    url: '/banner',
+    url: Api.getBanner,
     method: 'GET',
     params
   });
@@ -31,7 +52,7 @@ export function getBanner(params: Banner): unknown {
 // 首页-发现-圆形图标入口列表
 export function getHomePageBall(): unknown {
   return request({
-    url: '/homepage/dragon/ball',
+    url: Api.getHomePageBall,
     method: 'GET'
   });
 }
@@ -39,7 +60,7 @@ export function getHomePageBall(): unknown {
 // 获取每日推荐歌单
 export function getHomeResource(): unknown {
   return request({
-    url: '/recommend/resource',
+    url: Api.getHomeResource,
     method: 'GET'
   });
 }
@@ -47,7 +68,7 @@ export function getHomeResource(): unknown {
 // 获取每日推荐歌曲
 export function getHomeRecommondSongs(): unknown {
   return request({
-    url: '/recommend/songs',
+    url: Api.getHomeRecommondSongs,
     method: 'GET'
   });
 }
@@ -55,7 +76,7 @@ export function getHomeRecommondSongs(): unknown {
 // 获取推荐MV
 export function getHomeMV(): unknown {
   return request({
-    url: '/personalized/mv',
+    url: Api.getHomeMV,
     method: 'GET'
   });
 }
@@ -63,7 +84,7 @@ export function getHomeMV(): unknown {
 // 推荐节目
 export function getHomeProgram(): unknown {
   return request({
-    url: '/program/recommend',
+    url: Api.getHomeProgram,
     method: 'GET'
   });
 }
@@ -71,7 +92,7 @@ export function getHomeProgram(): unknown {
 // 推荐电台
 export function getHomeDj(): unknown {
   return request({
-    url: '/personalized/djprogram',
+    url: Api.getHomeDj,
     method: 'GET'
   });
 }
@@ -79,7 +100,7 @@ export function getHomeDj(): unknown {
 // 推荐歌单
 export function getPersonalized(params: unknown): unknown {
   return request({
-    url: '/personalized',
+    url: Api.getPersonalized,
     method: 'get',
     params
   });
@@ -88,7 +109,7 @@ export function getPersonalized(params: unknown): unknown {
 // 推荐新音乐
 export function getNewSong(params: unknown): unknown {
   return request({
-    url: '/personalized/newsong',
+    url: Api.getNewSong,
     method: 'get',
     params
   });
@@ -97,7 +118,7 @@ export function getNewSong(params: unknown): unknown {
 // 获取所有榜单
 export function getTopList(): unknown {
   return request({
-    url: '/toplist',
+    url: Api.getTopList,
     method: 'get'
   });
 }
@@ -105,7 +126,7 @@ export function getTopList(): unknown {
 // 获取歌单详情
 export function getPlayListDetail(params: GetPlayListDetailParams): any {
   return request({
-    url: '/playlist/detail',
+    url: Api.getPlayListDetail,
     method: 'get',
     params
   });
@@ -114,8 +135,8 @@ export function getPlayListDetail(params: GetPlayListDetailParams): any {
 // 获取话题
 export function getTopic(params: PageParams) {
   return request({
-    url: '/hot/topic',
+    url: Api.getTopic,
     method: 'get',
     params
-  })
+  });
 }

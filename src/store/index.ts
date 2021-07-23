@@ -17,7 +17,7 @@ export default createStore({
   modules,
   plugins: [
     createPersistedState({
-      storage: window.localStorage
+      storage: window.sessionStorage
     })
   ]
 });

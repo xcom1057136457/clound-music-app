@@ -2,7 +2,10 @@
   <div class="scroll-wrapper" ref="scroll">
     <div class="scroll-content">
       <div v-for="item in hotTopic" :key="item.actId" class="topic-item">
-        <div class="image-box" :style="{ backgroundImage: `url(${ item.sharePicUrl })` }"></div>
+        <div
+          class="image-box"
+          :style="{ backgroundImage: `url(${item.sharePicUrl})` }"
+        ></div>
 
         <div class="detail-wrapper">
           <div>{{ item.title }}</div>
