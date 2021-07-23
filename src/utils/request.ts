@@ -30,6 +30,7 @@ instance.interceptors.response.use(
   },
   err => {
     store.dispatch('global/getLoading', false);
+
     Toast.fail(err.message || '网络开小差了!');
     Promise.reject(err);
   }
