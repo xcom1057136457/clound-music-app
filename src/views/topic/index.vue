@@ -23,7 +23,8 @@ import {
   onMounted,
   reactive,
   Ref,
-  ref
+  ref,
+  ComponentInternalInstance
 } from 'vue';
 import { PageParams } from '@/types/Api.interface';
 import BScroll from 'better-scroll';

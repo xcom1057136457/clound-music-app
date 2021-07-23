@@ -4,8 +4,8 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin');
 const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 
 module.exports = {
-  publicPath: process.env.NODE_ENV == 'development' ? './' : '/',
-  lintOnSave: false,
+  publicPath: process.env.NODE_ENV === 'development' ? './' : '/',
+  lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   css: {
     loaderOptions: {

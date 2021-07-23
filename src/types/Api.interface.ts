@@ -8,5 +8,5 @@ export declare interface GetPlayListDetailParams {
 
 export declare interface PageParams {
   limit?: number;
-  offset?: number
+  offset?: number;
 }

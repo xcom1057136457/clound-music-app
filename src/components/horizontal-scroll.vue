@@ -9,14 +9,21 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, getCurrentInstance, nextTick, onMounted, Ref, ref } from 'vue';
+import {
+  defineComponent,
+  getCurrentInstance,
+  nextTick,
+  onMounted,
+  Ref,
+  ref
+} from 'vue';
 import BScroll from 'better-scroll';
 
 export default defineComponent({
   setup() {
     let bs: Ref<any> = ref(null);
     let scroll: Ref<any> = ref(null);
-    let { proxy }: any = getCurrentInstance()
+    let { proxy }: any = getCurrentInstance();
 
     let init = () => {
       bs.value = new BScroll(scroll.value, {
@@ -30,12 +37,12 @@ export default defineComponent({
 
     onMounted(() => {
       proxy.$bus.on('refresh', () => {
-        init()
-      })
+        init();
+      });
 
       setTimeout(() => {
-        init()
-      }, 2000)
+        init();
+      }, 2000);
     });
 
     return {

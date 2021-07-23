@@ -50,5 +50,4 @@ export default defineComponent({
     overflow: auto;
   }
 }
-
 </style>

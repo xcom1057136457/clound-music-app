@@ -22,8 +22,8 @@ import {
   Dialog,
   NavBar,
   Row,
-  Col
-} from 'vant';
+  Col,
+} from "vant";
 
 const vantList: any = {
   Button,
@@ -49,7 +49,7 @@ const vantList: any = {
   Dialog,
   NavBar,
   Row,
-  Col
+  Col,
 };
 
 export default vantList;

@@ -1,7 +1,15 @@
-<template>DJ</template>
+<template>
+  <div>dj</div>
+</template>
 
 <script>
-export default {};
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
+    return {};
+  }
+});
 </script>
 
-<style></style>
+<style lang="scss" scoped></style>

@@ -112,12 +112,12 @@ import { defineComponent } from 'vue';
 import { computed, ref, Ref } from '@vue/runtime-core';
 import { useStore, Store } from 'vuex';
 import { Dialog } from 'vant';
-import { removeToken } from "@/utils/auth"
+import { removeToken } from '@/utils/auth';
 import { useRouter, Router } from 'vue-router';
 export default defineComponent({
   setup() {
     const store: Store<any> = useStore();
-    const router: Router = useRouter()
+    const router: Router = useRouter();
 
     // 获取用户头像
     let userInfo: any = computed(() => {
@@ -133,12 +133,12 @@ export default defineComponent({
       })
         .then(() => {
           // on confirm
-          removeToken()
+          removeToken();
           setTimeout(() => {
             router.push({
               name: 'Login'
-            })
-          }, 100)
+            });
+          }, 100);
         })
         .catch(() => {
           // on cancel

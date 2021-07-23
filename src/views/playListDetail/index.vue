@@ -20,8 +20,7 @@
         :style="{
           backgroundImage: `url(${playListDetail.coverImgUrl})`
         }"
-      >
-      </div>
+      ></div>
       <div class="scroll-content">
         <div
           v-for="(item, index) in playListDetail.tracks"

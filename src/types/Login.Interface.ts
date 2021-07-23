@@ -1,15 +1,15 @@
 export declare interface PhoneLogin {
-  phone: string | number;
-  password: string | number;
+  phone?: string | number;
+  password?: string | number;
 }
 
 export declare interface EmailLogin {
-  email: string | number;
-  password: string | number;
+  email?: string | number;
+  password?: string | number;
 }
 
 export declare interface UserInfoDetail {
-  account: any;
-  profile: any;
-  bindings: any;
+  account?: any;
+  profile?: any;
+  bindings?: any;
 }
